@@ -14,28 +14,43 @@
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             min-height: 100vh;
-            background: #f0f2f5;
-            margin: 0;
-            padding: 0;
+            background: #0a0e27;
+            overflow-x: hidden;
         }
 
-        .container {
-            max-width: 100%;
+        .stars {
+            position: fixed;
             width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
             background: white;
-            box-shadow: none;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
         }
 
         .header {
-            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-                        url('<a href="https://ibb.co/zVtBqfdG"><img src="https://i.ibb.co/9Hd1QYPs/Flag.png" alt="Flag" border="0"></a>');
+            background: linear-gradient(135deg, rgba(0, 40, 104, 0.95) 0%, rgba(191, 10, 48, 0.95) 100%),
+                        url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"%3E%3Crect fill="%23B22234" width="1200" height="600"/%3E%3Cg fill="%23FFFFFF"%3E%3Crect y="46" width="1200" height="46"/%3E%3Crect y="138" width="1200" height="46"/%3E%3Crect y="230" width="1200" height="46"/%3E%3Crect y="322" width="1200" height="46"/%3E%3Crect y="414" width="1200" height="46"/%3E%3Crect y="506" width="1200" height="46"/%3E%3C/g%3E%3Crect fill="%233C3B6E" width="480" height="322"/%3E%3Cg fill="%23FFFFFF"%3E%3Cpolygon points="47,30 50,40 60,40 52,46 55,56 47,50 39,56 42,46 34,40 44,40"/%3E%3Cpolygon points="107,30 110,40 120,40 112,46 115,56 107,50 99,56 102,46 94,40 104,40"/%3E%3Cpolygon points="167,30 170,40 180,40 172,46 175,56 167,50 159,56 162,46 154,40 164,40"/%3E%3Cpolygon points="227,30 230,40 240,40 232,46 235,56 227,50 219,56 222,46 214,40 224,40"/%3E%3Cpolygon points="287,30 290,40 300,40 292,46 295,56 287,50 279,56 282,46 274,40 284,40"/%3E%3Cpolygon points="347,30 350,40 360,40 352,46 355,56 347,50 339,56 342,46 334,40 344,40"/%3E%3Cpolygon points="407,30 410,40 420,40 412,46 415,56 407,50 399,56 402,46 394,40 404,40"/%3E%3Cpolygon points="77,75 80,85 90,85 82,91 85,101 77,95 69,101 72,91 64,85 74,85"/%3E%3Cpolygon points="137,75 140,85 150,85 142,91 145,101 137,95 129,101 132,91 124,85 134,85"/%3E%3Cpolygon points="197,75 200,85 210,85 202,91 205,101 197,95 189,101 192,91 184,85 194,85"/%3E%3Cpolygon points="257,75 260,85 270,85 262,91 265,101 257,95 249,101 252,91 244,85 254,85"/%3E%3Cpolygon points="317,75 320,85 330,85 322,91 325,101 317,95 309,101 312,91 304,85 314,85"/%3E%3Cpolygon points="377,75 380,85 390,85 382,91 385,101 377,95 369,101 372,91 364,85 374,85"/%3E%3Cpolygon points="47,120 50,130 60,130 52,136 55,146 47,140 39,146 42,136 34,130 44,130"/%3E%3Cpolygon points="107,120 110,130 120,130 112,136 115,146 107,140 99,146 102,136 94,130 104,130"/%3E%3Cpolygon points="167,120 170,130 180,130 172,136 175,146 167,140 159,146 162,136 154,130 164,130"/%3E%3Cpolygon points="227,120 230,130 240,130 232,136 235,146 227,140 219,146 222,136 214,130 224,130"/%3E%3Cpolygon points="287,120 290,130 300,130 292,136 295,146 287,140 279,146 282,136 274,130 284,130"/%3E%3Cpolygon points="347,120 350,130 360,130 352,136 355,146 347,140 339,146 342,136 334,130 344,130"/%3E%3Cpolygon points="407,120 410,130 420,130 412,136 415,146 407,140 399,146 402,136 394,130 404,130"/%3E%3Cpolygon points="77,165 80,175 90,175 82,181 85,191 77,185 69,191 72,181 64,175 74,175"/%3E%3Cpolygon points="137,165 140,175 150,175 142,181 145,191 137,185 129,191 132,181 124,175 134,175"/%3E%3Cpolygon points="197,165 200,175 210,175 202,181 205,191 197,185 189,191 192,181 184,175 194,175"/%3E%3Cpolygon points="257,165 260,175 270,175 262,181 265,191 257,185 249,191 252,181 244,175 254,175"/%3E%3Cpolygon points="317,165 320,175 330,175 322,181 325,191 317,185 309,191 312,181 304,175 314,175"/%3E%3Cpolygon points="377,165 380,175 390,175 382,181 385,191 377,185 369,191 372,181 364,175 374,175"/%3E%3Cpolygon points="47,210 50,220 60,220 52,226 55,236 47,230 39,236 42,226 34,220 44,220"/%3E%3Cpolygon points="107,210 110,220 120,220 112,226 115,236 107,230 99,236 102,226 94,220 104,220"/%3E%3Cpolygon points="167,210 170,220 180,220 172,226 175,236 167,230 159,236 162,226 154,220 164,220"/%3E%3Cpolygon points="227,210 230,220 240,220 232,226 235,236 227,230 219,236 222,226 214,220 224,220"/%3E%3Cpolygon points="287,210 290,220 300,220 292,226 295,236 287,230 279,236 282,226 274,220 284,220"/%3E%3Cpolygon points="347,210 350,220 360,220 352,226 355,236 347,230 339,236 342,226 334,220 344,220"/%3E%3Cpolygon points="407,210 410,220 420,220 412,226 415,236 407,230 399,236 402,226 394,220 404,220"/%3E%3Cpolygon points="77,255 80,265 90,265 82,271 85,281 77,275 69,281 72,271 64,265 74,265"/%3E%3Cpolygon points="137,255 140,265 150,265 142,271 145,281 137,275 129,281 132,271 124,265 134,265"/%3E%3Cpolygon points="197,255 200,265 210,265 202,271 205,281 197,275 189,281 192,271 184,265 194,265"/%3E%3Cpolygon points="257,255 260,265 270,265 262,271 265,281 257,275 249,281 252,271 244,265 254,265"/%3E%3Cpolygon points="317,255 320,265 330,265 322,271 325,281 317,275 309,281 312,271 304,265 314,265"/%3E%3Cpolygon points="377,255 380,265 390,265 382,271 385,281 377,275 369,281 372,271 364,265 374,265"/%3E%3C/g%3E%3C/svg%3E');
             background-size: cover;
             background-position: center;
             color: white;
-            padding: 50px 30px;
+            padding: 80px 30px;
             text-align: center;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
         }
 
         .header::before {
@@ -45,8 +60,8 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
-            animation: shine 3s infinite;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.15) 50%, transparent 70%);
+            animation: shine 4s infinite;
         }
 
         @keyframes shine {
@@ -60,61 +75,99 @@
         }
 
         .header h1 {
-            font-size: 3em;
-            margin-bottom: 10px;
-            font-weight: 800;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            letter-spacing: 2px;
+            font-size: 4em;
+            margin-bottom: 15px;
+            font-weight: 900;
+            text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
+            letter-spacing: 4px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .header .subtitle {
-            font-size: 1.3em;
+            font-size: 1.5em;
             opacity: 0.95;
-            font-weight: 300;
-            letter-spacing: 1px;
+            font-weight: 400;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+            animation: fadeInUp 1s ease-out 0.3s both;
         }
 
-        .stars {
-            position: absolute;
-            top: 10px;
-            left: 20px;
-            font-size: 2em;
-            opacity: 0.3;
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .content {
-            padding: 50px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 40px;
+            position: relative;
+            z-index: 1;
         }
 
         .section-title {
-            font-size: 1.5em;
-            color: #002868;
-            margin-bottom: 30px;
-            font-weight: 700;
+            font-size: 2em;
+            color: white;
+            margin-bottom: 50px;
+            font-weight: 800;
             text-align: center;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 4px;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #BF0A30, #002868);
+            border-radius: 2px;
         }
 
         .links-grid {
             display: grid;
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
             margin-bottom: 30px;
         }
 
         .link-card {
-            background: linear-gradient(135deg, #ffffff 0%, #f5f7fa 100%);
-            border: 3px solid #e0e7ef;
-            border-radius: 18px;
-            padding: 30px;
+            background: linear-gradient(145deg, #1a1f3a 0%, #0d1123 100%);
+            border: 2px solid rgba(191, 10, 48, 0.3);
+            border-radius: 20px;
+            padding: 35px;
             text-decoration: none;
-            color: #1a1a2e;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            color: white;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             display: flex;
             align-items: center;
             gap: 25px;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
 
         .link-card::before {
@@ -124,37 +177,77 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(191, 10, 48, 0.1), transparent);
-            transition: left 0.5s;
+            background: linear-gradient(90deg, transparent, rgba(191, 10, 48, 0.2), transparent);
+            transition: left 0.6s;
         }
 
         .link-card:hover::before {
             left: 100%;
         }
 
+        .link-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 20px;
+            padding: 2px;
+            background: linear-gradient(135deg, #BF0A30, #002868, #BF0A30);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+
+        .link-card:hover::after {
+            opacity: 1;
+        }
+
         .link-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 15px 40px rgba(191, 10, 48, 0.3);
+            transform: translateY(-12px) scale(1.03);
+            box-shadow: 0 20px 60px rgba(191, 10, 48, 0.4);
             border-color: #BF0A30;
         }
 
         .link-icon {
-            width: 70px;
-            height: 70px;
+            width: 80px;
+            height: 80px;
             background: linear-gradient(135deg, #BF0A30 0%, #002868 100%);
-            border-radius: 15px;
+            border-radius: 18px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 32px;
+            font-size: 38px;
             flex-shrink: 0;
-            box-shadow: 0 5px 15px rgba(191, 10, 48, 0.3);
-            transition: transform 0.3s;
+            box-shadow: 0 8px 20px rgba(191, 10, 48, 0.5);
+            transition: all 0.4s;
+            position: relative;
+        }
+
+        .link-icon::before {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #BF0A30, #002868);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.4s;
         }
 
         .link-card:hover .link-icon {
-            transform: rotate(5deg) scale(1.1);
+            transform: rotate(10deg) scale(1.15);
+        }
+
+        .link-card:hover .link-icon::before {
+            opacity: 1;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
         }
 
         .link-info {
@@ -162,96 +255,207 @@
         }
 
         .link-title {
-            font-size: 1.4em;
-            font-weight: 700;
-            margin-bottom: 8px;
-            color: #002868;
+            font-size: 1.5em;
+            font-weight: 800;
+            margin-bottom: 10px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         .link-description {
-            font-size: 1em;
-            color: #6c757d;
-            line-height: 1.5;
+            font-size: 1.05em;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
         }
 
-        .footer {
-            background: linear-gradient(135deg, #002868 0%, #001a4d 100%);
-            padding: 25px 30px;
-            text-align: center;
-            color: white;
-            font-size: 0.95em;
-            font-weight: 500;
+        .badge {
+            display: inline-block;
+            background: rgba(191, 10, 48, 0.3);
+            color: #ff6b6b;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.75em;
+            font-weight: 700;
+            margin-top: 8px;
+            text-transform: uppercase;
             letter-spacing: 1px;
         }
 
-        @media (max-width: 600px) {
+        .archive-toggle {
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .archive-btn {
+            background: linear-gradient(135deg, rgba(191, 10, 48, 0.2) 0%, rgba(0, 40, 104, 0.2) 100%);
+            border: 2px solid rgba(191, 10, 48, 0.5);
+            color: white;
+            padding: 15px 40px;
+            font-size: 1.1em;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.4s;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .archive-btn:hover {
+            background: linear-gradient(135deg, rgba(191, 10, 48, 0.4) 0%, rgba(0, 40, 104, 0.4) 100%);
+            border-color: #BF0A30;
+            transform: scale(1.05);
+            box-shadow: 0 8px 30px rgba(191, 10, 48, 0.4);
+        }
+
+        .archive-section {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.6s ease-out, opacity 0.6s ease-out, margin-top 0.6s ease-out;
+            opacity: 0;
+            padding: 0 20px;
+        }
+
+        .archive-section.active {
+            max-height: 500px;
+            opacity: 1;
+            margin-top: 40px;
+        }
+
+        .archive-title {
+            font-size: 1.5em;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 30px;
+            font-weight: 700;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .footer {
+            background: linear-gradient(135deg, #0d1123 0%, #1a1f3a 100%);
+            padding: 40px 30px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1em;
+            font-weight: 500;
+            letter-spacing: 2px;
+            border-top: 2px solid rgba(191, 10, 48, 0.3);
+        }
+
+        @media (max-width: 768px) {
             .header h1 {
-                font-size: 2.2em;
+                font-size: 2.5em;
             }
             
             .header .subtitle {
                 font-size: 1.1em;
             }
+
+            .links-grid {
+                grid-template-columns: 1fr;
+            }
             
             .link-card {
-                padding: 20px;
-                flex-direction: column;
-                text-align: center;
+                padding: 25px;
             }
             
             .link-icon {
-                width: 60px;
-                height: 60px;
-                font-size: 28px;
+                width: 65px;
+                height: 65px;
+                font-size: 30px;
             }
 
             .content {
-                padding: 35px 25px;
+                padding: 50px 25px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <div class="header-content">
-                <h1>TPUSA SAN MATEO</h1>
-                <p class="subtitle">Leadership Resource Hub</p>
-            </div>
-        </div>
-
-        <div class="content">
-            <h2 class="section-title">Quick Access</h2>
-            <div class="links-grid">
-                <a href="https://docs.google.com/spreadsheets/d/1AYu-Ukg665uLP4Vks4vNF_T8JHOO2-2zhvVWzVc5_uc/edit?usp=sharing" class="link-card" target="_blank">
-                    <div class="link-icon">✍️</div>
-                    <div class="link-info">
-                        <div class="link-title">Sign-In Responses</div>
-                        <div class="link-description">View all member check-in data from meetings and events</div>
-                    </div>
-                </a>
-
-                <a href="https://docs.google.com/spreadsheets/d/1w7FNjWs3qBsTv2a9-8CBbXhndav6s-raRZ2XKWQzn8Q/edit?usp=sharing" class="link-card" target="_blank">
-                    <div class="link-icon">📋</div>
-                    <div class="link-info">
-                        <div class="link-title">RSVP Responses</div>
-                        <div class="link-description">Track event registrations and attendance confirmations</div>
-                    </div>
-                </a>
-
-                <a href="https://drive.google.com/drive/folders/1OeHNHwO8AKW8ixFwqpQbRAF56y-_LDTP?usp=sharing" class="link-card" target="_blank">
-                    <div class="link-icon">📁</div>
-                    <div class="link-info">
-                        <div class="link-title">Resource Drive</div>
-                        <div class="link-description">Access shared documents, materials, and chapter resources</div>
-                    </div>
-                </a>
-            </div>
-        </div>
-
-        <div class="footer">
-            <p>TPUSA San Mateo Chapter · Turning Point USA · 2025</p>
+    <div class="stars" id="stars"></div>
+    
+    <div class="header">
+        <div class="header-content">
+            <h1>TPUSA SAN MATEO</h1>
+            <p class="subtitle">Leadership Command Center</p>
         </div>
     </div>
+
+    <div class="content">
+        <h2 class="section-title">Response Dashboard</h2>
+        <div class="links-grid">
+            <a href="https://docs.google.com/spreadsheets/d/1AYu-Ukg665uLP4Vks4vNF_T8JHOO2-2zhvVWzVc5_uc/edit?usp=sharing" class="link-card" target="_blank">
+                <div class="link-icon">✍️</div>
+                <div class="link-info">
+                    <div class="link-title">Sign-In Responses</div>
+                    <div class="link-description">Current member check-ins and attendance tracking</div>
+                </div>
+            </a>
+
+            <a href="https://docs.google.com/spreadsheets/d/1w7FNjWs3qBsTv2a9-8CBbXhndav6s-raRZ2XKWQzn8Q/edit?usp=sharing" class="link-card" target="_blank">
+                <div class="link-icon">📋</div>
+                <div class="link-info">
+                    <div class="link-title">RSVP Responses</div>
+                    <div class="link-description">Event registrations and attendance confirmations</div>
+                </div>
+            </a>
+
+            <a href="https://drive.google.com/drive/folders/1OeHNHwO8AKW8ixFwqpQbRAF56y-_LDTP?usp=sharing" class="link-card" target="_blank">
+                <div class="link-icon">📁</div>
+                <div class="link-info">
+                    <div class="link-title">Resource Drive</div>
+                    <div class="link-description">Shared documents, materials, and chapter resources</div>
+                </div>
+            </a>
+        </div>
+
+        <div class="archive-toggle">
+            <button class="archive-btn" onclick="toggleArchive()">📦 View Archived Forms</button>
+        </div>
+
+        <div class="archive-section" id="archiveSection">
+            <h3 class="archive-title">Archived Data</h3>
+            <div class="links-grid">
+                <a href="https://docs.google.com/spreadsheets/d/1LBMqMBxcu-U73vnDiZRA6Ap0kqqMq8qhLazut2DvXFE/edit?gid=1176258072#gid=1176258072" class="link-card" target="_blank">
+                    <div class="link-icon">📊</div>
+                    <div class="link-info">
+                        <div class="link-title">Old Sign-In Form</div>
+                        <div class="link-description">Legacy attendance data and historical records</div>
+                        <span class="badge">Archived</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>TPUSA San Mateo Chapter · Turning Point USA · 2025</p>
+    </div>
+
+    <script>
+        // Create animated stars
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 100; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            starsContainer.appendChild(star);
+        }
+
+        // Toggle archive section
+        function toggleArchive() {
+            const archiveSection = document.getElementById('archiveSection');
+            archiveSection.classList.toggle('active');
+            const btn = document.querySelector('.archive-btn');
+            if (archiveSection.classList.contains('active')) {
+                btn.textContent = '📦 Hide Archived Forms';
+            } else {
+                btn.textContent = '📦 View Archived Forms';
+            }
+        }
+    </script>
 </body>
 </html>
