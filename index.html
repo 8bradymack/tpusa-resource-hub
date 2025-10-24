@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TPUSA San Mateo | Quick Links</title>
+    <title>TPUSA San Mateo | Freedom. Leadership. Action.</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
         
         * {
             margin: 0;
@@ -14,808 +14,730 @@
         }
 
         :root {
-            --red: #BF0A30;
-            --blue: #002868;
-            --dark: #0a0e1a;
-            --darker: #050810;
-            --card-bg: #12182e;
-            --card-border: #1e2740;
+            --navy: #0A1F44;
+            --red: #DC143C;
+            --white: #FFFFFF;
+            --cream: #F5F5F7;
+            --dark: #1D1D1F;
+            --light-gray: #86868B;
+            --blue: #003B6F;
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background: var(--darker);
-            color: white;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--white);
+            color: var(--dark);
             overflow-x: hidden;
-            line-height: 1.6;
-        }
-
-        /* Animated Background */
-        .bg-animation {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            opacity: 0.3;
-            pointer-events: none;
-        }
-
-        .bg-gradient {
-            position: absolute;
-            width: 600px;
-            height: 600px;
-            border-radius: 50%;
-            filter: blur(120px);
-            animation: float 25s infinite ease-in-out;
-        }
-
-        .bg-gradient:nth-child(1) {
-            background: var(--red);
-            top: -250px;
-            left: -250px;
-        }
-
-        .bg-gradient:nth-child(2) {
-            background: var(--blue);
-            bottom: -250px;
-            right: -250px;
-            animation-delay: -12s;
-        }
-
-        .bg-gradient:nth-child(3) {
-            background: var(--red);
-            top: 40%;
-            left: 60%;
-            animation-delay: -6s;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            33% { transform: translate(150px, -100px) scale(1.2); }
-            66% { transform: translate(-100px, 150px) scale(0.8); }
-        }
-
-        /* Page Container */
-        .page-container {
-            position: relative;
-            z-index: 1;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
+            -webkit-font-smoothing: antialiased;
         }
 
         /* Navigation */
         .nav {
-            padding: 30px 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(18, 24, 46, 0.6);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--card-border);
-            position: sticky;
+            position: fixed;
             top: 0;
-            z-index: 100;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.72);
+            backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 0.5px solid rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .nav.scrolled {
+            background: rgba(255, 255, 255, 0.85);
+        }
+
+        .nav-content {
+            width: 100%;
+            max-width: none;
+            margin: 0;
+            padding: 0 40px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-direction: row;
         }
 
         .nav-logo {
-            font-size: 1.5em;
-            font-weight: 900;
+            font-size: 21px;
+            font-weight: 600;
+            color: var(--dark);
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 8px;
             cursor: pointer;
-            transition: transform 0.3s;
-        }
-
-        .nav-logo:hover {
-            transform: scale(1.05);
-        }
-
-        .nav-logo-icon {
-            width: 45px;
-            height: 45px;
-            background: linear-gradient(135deg, var(--red), var(--blue));
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 22px;
+            margin-left: 10px;
         }
 
         .nav-links {
             display: flex;
-            gap: 15px;
+            gap: 32px;
+            align-items: center;
+            margin-right: 10px;
         }
 
-        .nav-btn {
-            padding: 12px 24px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            color: white;
-            font-weight: 600;
-            font-size: 0.95em;
+        .nav-link {
+            font-size: 12px;
+            font-weight: 400;
+            color: var(--dark);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.2s;
             cursor: pointer;
-            transition: all 0.3s;
         }
 
-        .nav-btn:hover {
-            background: rgba(191, 10, 48, 0.2);
-            border-color: var(--red);
-            transform: translateY(-2px);
+        .nav-link:hover {
+            opacity: 1;
         }
 
-        .nav-btn.active {
-            background: linear-gradient(135deg, var(--red), var(--blue));
-            border-color: transparent;
-        }
-
-        /* Main Content */
-        .main-content {
-            flex: 1;
+        /* Hero Section */
+        .hero {
+            height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 60px 40px;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #0A1F44 0%, #003B6F 50%, #DC143C 100%);
         }
 
-        /* Page Views */
-        .page-view {
-            display: none;
-            max-width: 1400px;
+        .stars-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            animation: fadeIn 0.6s ease-out;
+            height: 100%;
+            opacity: 0.15;
+            background-image: 
+                radial-gradient(2px 2px at 20% 30%, white, transparent),
+                radial-gradient(2px 2px at 60% 70%, white, transparent),
+                radial-gradient(1px 1px at 50% 50%, white, transparent),
+                radial-gradient(1px 1px at 80% 10%, white, transparent),
+                radial-gradient(2px 2px at 90% 60%, white, transparent),
+                radial-gradient(1px 1px at 33% 80%, white, transparent),
+                radial-gradient(1px 1px at 15% 90%, white, transparent);
+            background-size: 200% 200%;
+            background-position: 0% 0%;
+            animation: stars 60s linear infinite;
         }
 
-        .page-view.active {
-            display: block;
+        @keyframes stars {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 100% 100%; }
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
 
-        /* Home Page */
-        .home-page {
+        .hero-content {
+            position: relative;
+            z-index: 10;
             text-align: center;
+            color: white;
+            padding: 0 20px;
         }
 
-        .home-hero {
+        .hero-flag {
+            font-size: 120px;
+            margin-bottom: 30px;
+            animation: wave 2s ease-in-out infinite;
+            display: inline-block;
+        }
+
+        @keyframes wave {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-10deg); }
+            75% { transform: rotate(10deg); }
+        }
+
+        .hero-title {
+            font-size: 96px;
+            font-weight: 700;
+            letter-spacing: -3px;
+            margin-bottom: 16px;
+            line-height: 1.05;
+        }
+
+        .hero-subtitle {
+            font-size: 28px;
+            font-weight: 300;
+            opacity: 0.9;
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 16px 32px;
+            background: white;
+            color: var(--navy);
+            font-size: 17px;
+            font-weight: 600;
+            border-radius: 980px;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-cta:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+
+        /* Content Sections */
+        .section {
+            padding: 120px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
             margin-bottom: 80px;
         }
 
-        .home-logo {
-            width: 140px;
-            height: 140px;
-            margin: 0 auto 40px;
-            background: linear-gradient(135deg, var(--red), var(--blue));
-            border-radius: 35px;
+        .section-eyebrow {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--red);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: 64px;
+            font-weight: 700;
+            color: var(--dark);
+            letter-spacing: -2px;
+            margin-bottom: 16px;
+            line-height: 1.1;
+        }
+
+        .section-description {
+            font-size: 21px;
+            color: var(--light-gray);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+
+        /* Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 24px;
+        }
+
+        .card {
+            background: var(--cream);
+            border-radius: 28px;
+            padding: 48px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--red), var(--blue));
+            transform: scaleX(0);
+            transition: transform 0.4s;
+        }
+
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-icon {
+            font-size: 56px;
+            margin-bottom: 24px;
+        }
+
+        .card-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 12px;
+        }
+
+        .card-description {
+            font-size: 17px;
+            color: var(--light-gray);
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--red);
+            font-size: 17px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .card-link::after {
+            content: '→';
+            transition: transform 0.3s;
+        }
+
+        .card:hover .card-link::after {
+            transform: translateX(4px);
+        }
+
+        /* Feature Rows */
+        .feature-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 120px;
+        }
+
+        .feature-row:nth-child(even) {
+            direction: rtl;
+        }
+
+        .feature-row:nth-child(even) > * {
+            direction: ltr;
+        }
+
+        .feature-visual {
+            background: linear-gradient(135deg, var(--navy), var(--blue));
+            border-radius: 28px;
+            padding: 80px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 70px;
-            box-shadow: 0 30px 80px rgba(191, 10, 48, 0.4);
-            animation: logo-pulse 3s ease-in-out infinite;
-        }
-
-        @keyframes logo-pulse {
-            0%, 100% { transform: scale(1); box-shadow: 0 30px 80px rgba(191, 10, 48, 0.4); }
-            50% { transform: scale(1.05); box-shadow: 0 40px 100px rgba(191, 10, 48, 0.6); }
-        }
-
-        .home-title {
-            font-size: 5em;
-            font-weight: 900;
-            margin-bottom: 25px;
-            letter-spacing: -3px;
-            background: linear-gradient(135deg, #fff 0%, rgba(255, 255, 255, 0.6) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .home-subtitle {
-            font-size: 1.6em;
-            opacity: 0.7;
-            font-weight: 600;
-            letter-spacing: 6px;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-        }
-
-        .home-description {
-            font-size: 1.15em;
-            opacity: 0.5;
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.8;
-        }
-
-        /* Category Cards */
-        .category-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 35px;
-        }
-
-        .category-card {
-            background: var(--card-bg);
-            border: 2px solid var(--card-border);
-            border-radius: 30px;
-            padding: 50px;
-            cursor: pointer;
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            font-size: 120px;
             position: relative;
             overflow: hidden;
+            min-height: 400px;
         }
 
-        .category-card::before {
+        .feature-visual::before {
             content: '';
             position: absolute;
             top: -50%;
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(191, 10, 48, 0.15) 0%, transparent 70%);
-            opacity: 0;
-            transition: opacity 0.5s;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(255, 255, 255, 0.03) 10px,
+                rgba(255, 255, 255, 0.03) 20px
+            );
+            animation: slide 20s linear infinite;
         }
 
-        .category-card:hover::before {
-            opacity: 1;
+        @keyframes slide {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
         }
 
-        .category-card:hover {
-            transform: translateY(-15px) scale(1.02);
-            border-color: var(--red);
-            box-shadow: 0 30px 80px rgba(191, 10, 48, 0.4);
-        }
-
-        .category-icon {
-            width: 90px;
-            height: 90px;
-            background: linear-gradient(135deg, var(--red), var(--blue));
-            border-radius: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 45px;
-            margin: 0 auto 30px;
-            position: relative;
-            z-index: 1;
-            transition: all 0.4s;
-        }
-
-        .category-card:hover .category-icon {
-            transform: scale(1.1) rotate(-5deg);
-        }
-
-        .category-title {
-            font-size: 2em;
-            font-weight: 800;
-            margin-bottom: 15px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .category-description {
-            font-size: 1.05em;
-            opacity: 0.6;
-            line-height: 1.7;
-            position: relative;
-            z-index: 1;
-        }
-
-        .category-arrow {
-            margin-top: 25px;
-            font-size: 1.5em;
-            opacity: 0;
-            transform: translateX(-10px);
-            transition: all 0.4s;
-            position: relative;
-            z-index: 1;
-        }
-
-        .category-card:hover .category-arrow {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        /* Content Pages */
-        .content-page {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .page-header {
-            text-align: center;
-            margin-bottom: 70px;
-        }
-
-        .page-title {
-            font-size: 3.5em;
-            font-weight: 900;
-            margin-bottom: 20px;
-            letter-spacing: -2px;
-        }
-
-        .page-title .highlight {
-            background: linear-gradient(135deg, var(--red), var(--blue));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .page-subtitle {
-            font-size: 1.2em;
-            opacity: 0.6;
-            font-weight: 500;
-        }
-
-        /* Link Cards */
-        .link-grid {
-            display: grid;
-            gap: 30px;
-        }
-
-        .link-card {
-            background: var(--card-bg);
-            border: 2px solid var(--card-border);
-            border-radius: 24px;
-            padding: 40px;
-            display: flex;
-            align-items: center;
-            gap: 30px;
-            transition: all 0.4s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .link-card::before {
-            content: '';
-            position: absolute;
-            left: -100%;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(191, 10, 48, 0.1), transparent);
-            transition: left 0.6s;
-        }
-
-        .link-card:hover::before {
-            left: 100%;
-        }
-
-        .link-card:hover {
-            transform: translateX(10px);
-            border-color: var(--red);
-            box-shadow: 0 20px 60px rgba(191, 10, 48, 0.3);
-        }
-
-        .link-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--red), var(--blue));
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 38px;
-            flex-shrink: 0;
-            position: relative;
-            z-index: 1;
-            transition: all 0.4s;
-        }
-
-        .link-card:hover .link-icon {
-            transform: scale(1.1) rotate(5deg);
-        }
-
-        .link-content {
-            flex: 1;
-            position: relative;
-            z-index: 1;
-        }
-
-        .link-title {
-            font-size: 1.8em;
+        .feature-content h3 {
+            font-size: 48px;
             font-weight: 700;
-            margin-bottom: 12px;
+            color: var(--dark);
+            margin-bottom: 16px;
+            letter-spacing: -1px;
         }
 
-        .link-description {
-            font-size: 1.05em;
-            opacity: 0.6;
-            line-height: 1.7;
-            margin-bottom: 20px;
+        .feature-content p {
+            font-size: 21px;
+            color: var(--light-gray);
+            line-height: 1.6;
+            margin-bottom: 24px;
         }
 
-        .link-btn {
+        .feature-btn {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             padding: 14px 28px;
-            background: rgba(191, 10, 48, 0.2);
-            border: 2px solid rgba(191, 10, 48, 0.4);
-            border-radius: 14px;
+            background: var(--red);
             color: white;
+            font-size: 17px;
+            font-weight: 600;
+            border-radius: 980px;
             text-decoration: none;
-            font-weight: 600;
-            font-size: 1em;
             transition: all 0.3s;
         }
 
-        .link-btn:hover {
-            background: rgba(191, 10, 48, 0.4);
-            border-color: var(--red);
-            transform: translateX(5px);
-        }
-
-        .link-btn::after {
-            content: '→';
-            font-size: 1.2em;
-            transition: transform 0.3s;
-        }
-
-        .link-btn:hover::after {
-            transform: translateX(5px);
-        }
-
-        /* Back Button */
-        .back-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 14px 28px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            border-radius: 14px;
-            color: white;
-            font-weight: 600;
-            font-size: 1em;
-            cursor: pointer;
-            transition: all 0.3s;
-            margin-bottom: 50px;
-        }
-
-        .back-btn:hover {
-            background: rgba(191, 10, 48, 0.2);
-            border-color: var(--red);
-            transform: translateX(-5px);
-        }
-
-        .back-btn::before {
-            content: '←';
-            font-size: 1.2em;
-            transition: transform 0.3s;
-        }
-
-        .back-btn:hover::before {
-            transform: translateX(-5px);
-        }
-
-        /* Archive Toggle */
-        .archive-toggle {
-            margin-top: 80px;
-            text-align: center;
-        }
-
-        .archive-toggle-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            padding: 16px 32px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            border-radius: 14px;
-            color: white;
-            font-weight: 600;
-            font-size: 1em;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .archive-toggle-btn:hover {
-            background: rgba(191, 10, 48, 0.2);
-            border-color: var(--red);
+        .feature-btn:hover {
             transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(220, 20, 60, 0.3);
         }
 
-        .archive-toggle-btn .arrow {
-            transition: transform 0.3s;
-            font-size: 1.2em;
+        /* Archive Section */
+        .archive-section {
+            background: var(--cream);
+            border-radius: 28px;
+            padding: 60px;
+            margin-top: 80px;
         }
 
-        .archive-toggle-btn.active .arrow {
-            transform: rotate(180deg);
+        .archive-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .archive-title {
+            font-size: 40px;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .archive-toggle {
+            padding: 12px 24px;
+            background: var(--dark);
+            color: white;
+            border: none;
+            border-radius: 980px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .archive-toggle:hover {
+            transform: scale(1.05);
         }
 
         .archive-content {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
-            opacity: 0;
+            transition: max-height 0.5s ease;
         }
 
         .archive-content.active {
-            max-height: 600px;
+            max-height: 1000px;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--navy);
+            color: white;
+            padding: 80px 20px 40px;
+            text-align: center;
+        }
+
+        .footer-flag {
+            font-size: 80px;
+            margin-bottom: 24px;
+        }
+
+        .footer-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .footer-description {
+            font-size: 17px;
+            opacity: 0.7;
+            max-width: 500px;
+            margin: 0 auto 40px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+        .footer-link:hover {
             opacity: 1;
-            margin-top: 40px;
+        }
+
+        .footer-copyright {
+            font-size: 13px;
+            opacity: 0.5;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .nav {
-                padding: 20px 25px;
-                flex-direction: column;
-                gap: 20px;
-            }
-
             .nav-links {
-                width: 100%;
-                flex-direction: column;
+                display: none;
             }
 
-            .nav-btn {
-                width: 100%;
-                text-align: center;
+            .hero-title {
+                font-size: 48px;
             }
 
-            .home-title {
-                font-size: 3em;
+            .hero-subtitle {
+                font-size: 21px;
             }
 
-            .home-subtitle {
-                font-size: 1.2em;
+            .section-title {
+                font-size: 40px;
             }
 
-            .category-grid {
+            .section-description {
+                font-size: 17px;
+            }
+
+            .cards-grid {
                 grid-template-columns: 1fr;
             }
 
-            .link-card {
-                flex-direction: column;
-                text-align: center;
+            .feature-row {
+                grid-template-columns: 1fr;
             }
 
-            .page-title {
-                font-size: 2.5em;
+            .feature-row:nth-child(even) {
+                direction: ltr;
             }
+
+            .feature-content h3 {
+                font-size: 32px;
+            }
+
+            .archive-header {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
         }
     </style>
 </head>
 <body>
-    <div class="bg-animation">
-        <div class="bg-gradient"></div>
-        <div class="bg-gradient"></div>
-        <div class="bg-gradient"></div>
-    </div>
-
-    <div class="page-container">
-        <nav class="nav">
-            <div class="nav-logo" onclick="showPage('home')">
-                <div class="nav-logo-icon">🇺🇸</div>
-                <span>TPUSA San Mateo</span>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-content">
+            <div class="nav-logo" onclick="scrollToSection('hero')">
+                🇺🇸 TPUSA San Mateo
             </div>
             <div class="nav-links">
-                <button class="nav-btn active" onclick="showPage('home')">Home</button>
-                <button class="nav-btn" onclick="showPage('forms')">Forms</button>
-                <button class="nav-btn" onclick="showPage('responses')">Responses</button>
-                <button class="nav-btn" onclick="showPage('resources')">Resources</button>
+                <a class="nav-link" onclick="scrollToSection('forms')">Forms</a>
+                <a class="nav-link" onclick="scrollToSection('responses')">Responses</a>
+                <a class="nav-link" onclick="scrollToSection('resources')">Resources</a>
             </div>
-        </nav>
+        </div>
+    </nav>
 
-        <div class="main-content">
-            <!-- Home Page -->
-            <div class="page-view active" id="home">
-                <div class="home-page">
-                    <div class="home-hero">
-                        <div class="home-logo">🇺🇸</div>
-                        <h1 class="home-title">TPUSA San Mateo</h1>
-                        <p class="home-subtitle">Quick Links</p>
-                        <p class="home-description">Access all chapter resources, forms, and data in one centralized hub</p>
-                    </div>
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="stars-bg"></div>
+        <div class="hero-content">
+            <div class="hero-flag">🇺🇸</div>
+            <h1 class="hero-title">TPUSA San Mateo</h1>
+            <p class="hero-subtitle">Freedom. Leadership. Action.</p>
+            <a href="#forms" class="hero-cta" onclick="scrollToSection('forms'); return false;">
+                Get Started →
+            </a>
+        </div>
+        <div class="scroll-indicator">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                <path d="M12 5v14M19 12l-7 7-7-7"/>
+            </svg>
+        </div>
+    </section>
 
-                    <div class="category-grid">
-                        <div class="category-card" onclick="showPage('forms')">
-                            <div class="category-icon">📝</div>
-                            <h3 class="category-title">Forms</h3>
-                            <p class="category-description">Sign in to meetings and RSVP for upcoming chapter events</p>
-                            <div class="category-arrow">→</div>
-                        </div>
+    <!-- Forms Section -->
+    <section class="section" id="forms">
+        <div class="section-header">
+            <div class="section-eyebrow">Member Portal</div>
+            <h2 class="section-title">Quick Access Forms</h2>
+            <p class="section-description">Submit attendance and register for upcoming events with ease</p>
+        </div>
 
-                        <div class="category-card" onclick="showPage('responses')">
-                            <div class="category-icon">📊</div>
-                            <h3 class="category-title">Responses</h3>
-                            <p class="category-description">View attendance data and event registration analytics</p>
-                            <div class="category-arrow">→</div>
-                        </div>
-
-                        <div class="category-card" onclick="showPage('resources')">
-                            <div class="category-icon">🗂️</div>
-                            <h3 class="category-title">Resources</h3>
-                            <p class="category-description">Access shared documents, materials, and chapter files</p>
-                            <div class="category-arrow">→</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Forms Page -->
-            <div class="page-view" id="forms">
-                <div class="content-page">
-                    <button class="back-btn" onclick="showPage('home')">Back to Home</button>
-                    
-                    <div class="page-header">
-                        <h2 class="page-title"><span class="highlight">Member Forms</span></h2>
-                        <p class="page-subtitle">Submit your attendance and event registrations</p>
-                    </div>
-
-                    <div class="link-grid">
-                        <div class="link-card">
-                            <div class="link-icon">✍️</div>
-                            <div class="link-content">
-                                <h3 class="link-title">Sign-In Form</h3>
-                                <p class="link-description">Check in when you arrive at chapter meetings and events. Quick and easy attendance tracking for all members.</p>
-                                <a href="https://docs.google.com/forms/d/1TMdyR8BR4c57MWkWHCr4T_WltlAnwobgpLWdVHuXul0/viewform?edit_requested=true" class="link-btn" target="_blank">
-                                    Open Form
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="link-card">
-                            <div class="link-icon">🎫</div>
-                            <div class="link-content">
-                                <h3 class="link-title">RSVP Form</h3>
-                                <p class="link-description">Register for upcoming chapter events, activities, and special meetings. Let us know you're planning to attend!</p>
-                                <a href="https://docs.google.com/forms/d/1RV4eccrfUGxcGcYLXnTZCAC-HeJ-bpOpA-am2suIm-s/viewform?edit_requested=true" class="link-btn" target="_blank">
-                                    Open Form
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <div class="cards-grid">
+            <div class="card" onclick="window.open('https://docs.google.com/forms/d/1TMdyR8BR4c57MWkWHCr4T_WltlAnwobgpLWdVHuXul0/viewform?edit_requested=true', '_blank')">
+                <div class="card-icon">✍️</div>
+                <h3 class="card-title">Sign-In Form</h3>
+                <p class="card-description">Check in when you arrive at chapter meetings. Quick and seamless attendance tracking for all members.</p>
+                <a href="https://docs.google.com/forms/d/1TMdyR8BR4c57MWkWHCr4T_WltlAnwobgpLWdVHuXul0/viewform?edit_requested=true" class="card-link" target="_blank" onclick="event.stopPropagation()">
+                    Open form
+                </a>
             </div>
 
-            <!-- Responses Page -->
-            <div class="page-view" id="responses">
-                <div class="content-page">
-                    <button class="back-btn" onclick="showPage('home')">Back to Home</button>
-                    
-                    <div class="page-header">
-                        <h2 class="page-title"><span class="highlight">Response Data</span></h2>
-                        <p class="page-subtitle">Analyze form submissions and track attendance</p>
-                    </div>
-
-                    <div class="link-grid">
-                        <div class="link-card">
-                            <div class="link-icon">📈</div>
-                            <div class="link-content">
-                                <h3 class="link-title">Sign-In Responses</h3>
-                                <p class="link-description">Real-time attendance data and member check-in history. View comprehensive analytics on who's been to which events.</p>
-                                <a href="https://docs.google.com/spreadsheets/d/1AYu-Ukg665uLP4Vks4vNF_T8JHOO2-2zhvVWzVc5_uc/edit?usp=sharing" class="link-btn" target="_blank">
-                                    View Data
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="link-card">
-                            <div class="link-icon">📋</div>
-                            <div class="link-content">
-                                <h3 class="link-title">RSVP Responses</h3>
-                                <p class="link-description">Event registration confirmations and RSVP tracking. See who's planning to attend upcoming chapter activities.</p>
-                                <a href="https://docs.google.com/spreadsheets/d/1w7FNjWs3qBsTv2a9-8CBbXhndav6s-raRZ2XKWQzn8Q/edit?usp=sharing" class="link-btn" target="_blank">
-                                    View Data
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="archive-toggle">
-                        <button class="archive-toggle-btn" onclick="toggleArchive()">
-                            <span>📚</span>
-                            <span>View Archived Data</span>
-                            <span class="arrow">▼</span>
-                        </button>
-                    </div>
-
-                    <div class="archive-content" id="archiveContent">
-                        <div class="page-header" style="margin-top: 0;">
-                            <h2 class="page-title"><span class="highlight">Archived Data</span></h2>
-                            <p class="page-subtitle">Historical records and legacy data</p>
-                        </div>
-
-                        <div class="link-grid">
-                            <div class="link-card">
-                                <div class="link-icon">📚</div>
-                                <div class="link-content">
-                                    <h3 class="link-title">Archived Sign-In Data</h3>
-                                    <p class="link-description">Historical attendance records from previous semesters and legacy tracking system data for reference.</p>
-                                    <a href="https://docs.google.com/spreadsheets/d/1LBMqMBxcu-U73vnDiZRA6Ap0kqqMq8qhLazut2DvXFE/edit?gid=1176258072#gid=1176258072" class="link-btn" target="_blank">
-                                        View Archive
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="card" onclick="window.open('https://docs.google.com/forms/d/1RV4eccrfUGxcGcYLXnTZCAC-HeJ-bpOpA-am2suIm-s/viewform?edit_requested=true', '_blank')">
+                <div class="card-icon">🎫</div>
+                <h3 class="card-title">RSVP Form</h3>
+                <p class="card-description">Register for upcoming chapter events and activities. Let us know you're planning to attend!</p>
+                <a href="https://docs.google.com/forms/d/1RV4eccrfUGxcGcYLXnTZCAC-HeJ-bpOpA-am2suIm-s/viewform?edit_requested=true" class="card-link" target="_blank" onclick="event.stopPropagation()">
+                    Open form
+                </a>
             </div>
+        </div>
+    </section>
 
-            <!-- Resources Page -->
-            <div class="page-view" id="resources">
-                <div class="content-page">
-                    <button class="back-btn" onclick="showPage('home')">Back to Home</button>
-                    
-                    <div class="page-header">
-                        <h2 class="page-title"><span class="highlight">Resources</span></h2>
-                        <p class="page-subtitle">Access shared materials and documents</p>
-                    </div>
+    <!-- Responses Section -->
+    <section class="section" id="responses">
+        <div class="section-header">
+            <div class="section-eyebrow">Analytics Dashboard</div>
+            <h2 class="section-title">Response Data</h2>
+            <p class="section-description">Real-time insights and comprehensive attendance tracking</p>
+        </div>
 
-                    <div class="link-grid">
-                        <div class="link-card">
-                            <div class="link-icon">📁</div>
-                            <div class="link-content">
-                                <h3 class="link-title">Google Drive</h3>
-                                <p class="link-description">Centralized hub for all chapter documents, presentations, flyers, photos, videos, event materials, and shared files. Everything you need in one place.</p>
-                                <a href="https://drive.google.com/drive/folders/1OeHNHwO8AKW8ixFwqpQbRAF56y-_LDTP?usp=sharing" class="link-btn" target="_blank">
-                                    Browse Files
-                                </a>
-                            </div>
-                        </div>
+        <div class="feature-row">
+            <div class="feature-visual">
+                <span style="position: relative; z-index: 10;">📈</span>
+            </div>
+            <div class="feature-content">
+                <h3>Sign-In Responses</h3>
+                <p>Real-time attendance data and member check-in history. View comprehensive analytics on event participation and engagement metrics.</p>
+                <a href="https://docs.google.com/spreadsheets/d/1AYu-Ukg665uLP4Vks4vNF_T8JHOO2-2zhvVWzVc5_uc/edit?usp=sharing" class="feature-btn" target="_blank">
+                    View Data →
+                </a>
+            </div>
+        </div>
+
+        <div class="feature-row">
+            <div class="feature-visual">
+                <span style="position: relative; z-index: 10;">📋</span>
+            </div>
+            <div class="feature-content">
+                <h3>RSVP Responses</h3>
+                <p>Event registration confirmations and RSVP tracking. See who's planning to attend upcoming chapter activities and plan accordingly.</p>
+                <a href="https://docs.google.com/spreadsheets/d/1w7FNjWs3qBsTv2a9-8CBbXhndav6s-raRZ2XKWQzn8Q/edit?usp=sharing" class="feature-btn" target="_blank">
+                    View Data →
+                </a>
+            </div>
+        </div>
+
+        <!-- Archive Section -->
+        <div class="archive-section">
+            <div class="archive-header">
+                <h3 class="archive-title">📚 Archived Data</h3>
+                <button class="archive-toggle" onclick="toggleArchive()">Show Archive</button>
+            </div>
+            <div class="archive-content" id="archiveContent">
+                <div class="cards-grid">
+                    <div class="card" onclick="window.open('https://docs.google.com/spreadsheets/d/1LBMqMBxcu-U73vnDiZRA6Ap0kqqMq8qhLazut2DvXFE/edit?gid=1176258072#gid=1176258072', '_blank')">
+                        <div class="card-icon">📚</div>
+                        <h3 class="card-title">Archived Sign-In Data</h3>
+                        <p class="card-description">Historical attendance records from previous semesters and legacy tracking system data.</p>
+                        <a href="https://docs.google.com/spreadsheets/d/1LBMqMBxcu-U73vnDiZRA6Ap0kqqMq8qhLazut2DvXFE/edit?gid=1176258072#gid=1176258072" class="card-link" target="_blank" onclick="event.stopPropagation()">
+                            View archive
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section class="section" id="resources">
+        <div class="section-header">
+            <div class="section-eyebrow">Document Hub</div>
+            <h2 class="section-title">Shared Resources</h2>
+            <p class="section-description">Access all chapter materials, documents, and files in one place</p>
+        </div>
+
+        <div class="feature-row">
+            <div class="feature-visual">
+                <span style="position: relative; z-index: 10;">📁</span>
+            </div>
+            <div class="feature-content">
+                <h3>Google Drive</h3>
+                <p>Centralized hub for all chapter documents, presentations, flyers, photos, videos, event materials, and shared files. Everything you need in one organized location.</p>
+                <a href="https://drive.google.com/drive/folders/1OeHNHwO8AKW8ixFwqpQbRAF56y-_LDTP?usp=sharing" class="feature-btn" target="_blank">
+                    Browse Files →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-flag">🇺🇸</div>
+        <h3 class="footer-title">TPUSA San Mateo</h3>
+        <p class="footer-description">Empowering the next generation of conservative leaders through education, activism, and community engagement.</p>
+        <div class="footer-links">
+            <a href="#forms" class="footer-link" onclick="scrollToSection('forms'); return false;">Forms</a>
+            <a href="#responses" class="footer-link" onclick="scrollToSection('responses'); return false;">Responses</a>
+            <a href="#resources" class="footer-link" onclick="scrollToSection('resources'); return false;">Resources</a>
+        </div>
+        <div class="footer-copyright">
+            © 2024 TPUSA San Mateo. All rights reserved.
+        </div>
+    </footer>
 
     <script>
-        function showPage(pageName) {
-            // Hide all pages
-            const pages = document.querySelectorAll('.page-view');
-            pages.forEach(page => page.classList.remove('active'));
-
-            // Show selected page
-            document.getElementById(pageName).classList.add('active');
-
-            // Update nav buttons
-            const navBtns = document.querySelectorAll('.nav-btn');
-            navBtns.forEach(btn => btn.classList.remove('active'));
-            
-            if (pageName === 'home') {
-                navBtns[0].classList.add('active');
-            } else if (pageName === 'forms') {
-                navBtns[1].classList.add('active');
-            } else if (pageName === 'responses') {
-                navBtns[2].classList.add('active');
-            } else if (pageName === 'resources') {
-                navBtns[3].classList.add('active');
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
             }
+        });
 
-            // Scroll to top
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+        // Smooth scroll to section
+        function scrollToSection(id) {
+            const element = document.getElementById(id);
+            const navHeight = 44;
+            const elementPosition = element.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - navHeight;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
         }
 
+        // Toggle archive
         function toggleArchive() {
-            const archiveContent = document.getElementById('archiveContent');
-            const toggleBtn = document.querySelector('.archive-toggle-btn');
+            const content = document.getElementById('archiveContent');
+            const btn = document.querySelector('.archive-toggle');
             
-            archiveContent.classList.toggle('active');
-            toggleBtn.classList.toggle('active');
-            
-            if (archiveContent.classList.contains('active')) {
-                toggleBtn.querySelector('span:nth-child(2)').textContent = 'Hide Archived Data';
+            if (content.classList.contains('active')) {
+                content.classList.remove('active');
+                btn.textContent = 'Show Archive';
             } else {
-                toggleBtn.querySelector('span:nth-child(2)').textContent = 'View Archived Data';
+                content.classList.add('active');
+                btn.textContent = 'Hide Archive';
             }
         }
     </script>
