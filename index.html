@@ -3,108 +3,178 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TPUSA San Mateo - Leadership Hub</title>
+    <title>TPUSA San Mateo | Quick Links</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap');
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            min-height: 100vh;
-            background: #0a0e27;
-            overflow-x: hidden;
+        :root {
+            --red: #BF0A30;
+            --blue: #002868;
+            --dark: #0a0e1a;
+            --darker: #050810;
+            --card-bg: #12182e;
+            --card-border: #1e2740;
         }
 
-        .stars {
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--darker);
+            color: white;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Animated Background */
+        .bg-animation {
             position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            pointer-events: none;
             z-index: 0;
+            opacity: 0.3;
+            pointer-events: none;
         }
 
-        .star {
+        .bg-gradient {
             position: absolute;
-            width: 2px;
-            height: 2px;
-            background: white;
+            width: 600px;
+            height: 600px;
             border-radius: 50%;
-            animation: twinkle 3s infinite;
+            filter: blur(120px);
+            animation: float 25s infinite ease-in-out;
         }
 
-        @keyframes twinkle {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 1; }
+        .bg-gradient:nth-child(1) {
+            background: var(--red);
+            top: -250px;
+            left: -250px;
         }
 
-        .header {
-            background: linear-gradient(135deg, rgba(0, 40, 104, 0.95) 0%, rgba(191, 10, 48, 0.95) 100%),
-                        url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"%3E%3Crect fill="%23B22234" width="1200" height="600"/%3E%3Cg fill="%23FFFFFF"%3E%3Crect y="46" width="1200" height="46"/%3E%3Crect y="138" width="1200" height="46"/%3E%3Crect y="230" width="1200" height="46"/%3E%3Crect y="322" width="1200" height="46"/%3E%3Crect y="414" width="1200" height="46"/%3E%3Crect y="506" width="1200" height="46"/%3E%3C/g%3E%3Crect fill="%233C3B6E" width="480" height="322"/%3E%3Cg fill="%23FFFFFF"%3E%3Cpolygon points="47,30 50,40 60,40 52,46 55,56 47,50 39,56 42,46 34,40 44,40"/%3E%3Cpolygon points="107,30 110,40 120,40 112,46 115,56 107,50 99,56 102,46 94,40 104,40"/%3E%3Cpolygon points="167,30 170,40 180,40 172,46 175,56 167,50 159,56 162,46 154,40 164,40"/%3E%3Cpolygon points="227,30 230,40 240,40 232,46 235,56 227,50 219,56 222,46 214,40 224,40"/%3E%3Cpolygon points="287,30 290,40 300,40 292,46 295,56 287,50 279,56 282,46 274,40 284,40"/%3E%3Cpolygon points="347,30 350,40 360,40 352,46 355,56 347,50 339,56 342,46 334,40 344,40"/%3E%3Cpolygon points="407,30 410,40 420,40 412,46 415,56 407,50 399,56 402,46 394,40 404,40"/%3E%3Cpolygon points="77,75 80,85 90,85 82,91 85,101 77,95 69,101 72,91 64,85 74,85"/%3E%3Cpolygon points="137,75 140,85 150,85 142,91 145,101 137,95 129,101 132,91 124,85 134,85"/%3E%3Cpolygon points="197,75 200,85 210,85 202,91 205,101 197,95 189,101 192,91 184,85 194,85"/%3E%3Cpolygon points="257,75 260,85 270,85 262,91 265,101 257,95 249,101 252,91 244,85 254,85"/%3E%3Cpolygon points="317,75 320,85 330,85 322,91 325,101 317,95 309,101 312,91 304,85 314,85"/%3E%3Cpolygon points="377,75 380,85 390,85 382,91 385,101 377,95 369,101 372,91 364,85 374,85"/%3E%3Cpolygon points="47,120 50,130 60,130 52,136 55,146 47,140 39,146 42,136 34,130 44,130"/%3E%3Cpolygon points="107,120 110,130 120,130 112,136 115,146 107,140 99,146 102,136 94,130 104,130"/%3E%3Cpolygon points="167,120 170,130 180,130 172,136 175,146 167,140 159,146 162,136 154,130 164,130"/%3E%3Cpolygon points="227,120 230,130 240,130 232,136 235,146 227,140 219,146 222,136 214,130 224,130"/%3E%3Cpolygon points="287,120 290,130 300,130 292,136 295,146 287,140 279,146 282,136 274,130 284,130"/%3E%3Cpolygon points="347,120 350,130 360,130 352,136 355,146 347,140 339,146 342,136 334,130 344,130"/%3E%3Cpolygon points="407,120 410,130 420,130 412,136 415,146 407,140 399,146 402,136 394,130 404,130"/%3E%3Cpolygon points="77,165 80,175 90,175 82,181 85,191 77,185 69,191 72,181 64,175 74,175"/%3E%3Cpolygon points="137,165 140,175 150,175 142,181 145,191 137,185 129,191 132,181 124,175 134,175"/%3E%3Cpolygon points="197,165 200,175 210,175 202,181 205,191 197,185 189,191 192,181 184,175 194,175"/%3E%3Cpolygon points="257,165 260,175 270,175 262,181 265,191 257,185 249,191 252,181 244,175 254,175"/%3E%3Cpolygon points="317,165 320,175 330,175 322,181 325,191 317,185 309,191 312,181 304,175 314,175"/%3E%3Cpolygon points="377,165 380,175 390,175 382,181 385,191 377,185 369,191 372,181 364,175 374,175"/%3E%3Cpolygon points="47,210 50,220 60,220 52,226 55,236 47,230 39,236 42,226 34,220 44,220"/%3E%3Cpolygon points="107,210 110,220 120,220 112,226 115,236 107,230 99,236 102,226 94,220 104,220"/%3E%3Cpolygon points="167,210 170,220 180,220 172,226 175,236 167,230 159,236 162,226 154,220 164,220"/%3E%3Cpolygon points="227,210 230,220 240,220 232,226 235,236 227,230 219,236 222,226 214,220 224,220"/%3E%3Cpolygon points="287,210 290,220 300,220 292,226 295,236 287,230 279,236 282,226 274,220 284,220"/%3E%3Cpolygon points="347,210 350,220 360,220 352,226 355,236 347,230 339,236 342,226 334,220 344,220"/%3E%3Cpolygon points="407,210 410,220 420,220 412,226 415,236 407,230 399,236 402,226 394,220 404,220"/%3E%3Cpolygon points="77,255 80,265 90,265 82,271 85,281 77,275 69,281 72,271 64,265 74,265"/%3E%3Cpolygon points="137,255 140,265 150,265 142,271 145,281 137,275 129,281 132,271 124,265 134,265"/%3E%3Cpolygon points="197,255 200,265 210,265 202,271 205,281 197,275 189,281 192,271 184,265 194,265"/%3E%3Cpolygon points="257,255 260,265 270,265 262,271 265,281 257,275 249,281 252,271 244,265 254,265"/%3E%3Cpolygon points="317,255 320,265 330,265 322,271 325,281 317,275 309,281 312,271 304,265 314,265"/%3E%3Cpolygon points="377,255 380,265 390,265 382,271 385,281 377,275 369,281 372,271 364,265 374,265"/%3E%3C/g%3E%3C/svg%3E');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 80px 30px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        .bg-gradient:nth-child(2) {
+            background: var(--blue);
+            bottom: -250px;
+            right: -250px;
+            animation-delay: -12s;
         }
 
-        .header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.15) 50%, transparent 70%);
-            animation: shine 4s infinite;
+        .bg-gradient:nth-child(3) {
+            background: var(--red);
+            top: 40%;
+            left: 60%;
+            animation-delay: -6s;
         }
 
-        @keyframes shine {
-            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(150px, -100px) scale(1.2); }
+            66% { transform: translate(-100px, 150px) scale(0.8); }
         }
 
-        .header-content {
+        /* Page Container */
+        .page-container {
             position: relative;
             z-index: 1;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
-        .header h1 {
-            font-size: 4em;
-            margin-bottom: 15px;
-            font-weight: 900;
-            text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
-            letter-spacing: 4px;
-            animation: fadeInDown 1s ease-out;
+        /* Navigation */
+        .nav {
+            padding: 30px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(18, 24, 46, 0.6);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--card-border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .header .subtitle {
+        .nav-logo {
             font-size: 1.5em;
-            opacity: 0.95;
-            font-weight: 400;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
-            animation: fadeInUp 1s ease-out 0.3s both;
+            font-weight: 900;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            transition: transform 0.3s;
         }
 
-        @keyframes fadeInUp {
+        .nav-logo:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-logo-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--red), var(--blue));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-btn {
+            padding: 12px 24px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: white;
+            font-weight: 600;
+            font-size: 0.95em;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .nav-btn:hover {
+            background: rgba(191, 10, 48, 0.2);
+            border-color: var(--red);
+            transform: translateY(-2px);
+        }
+
+        .nav-btn.active {
+            background: linear-gradient(135deg, var(--red), var(--blue));
+            border-color: transparent;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 40px;
+        }
+
+        /* Page Views */
+        .page-view {
+            display: none;
+            max-width: 1400px;
+            width: 100%;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .page-view.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
             from {
                 opacity: 0;
                 transform: translateY(30px);
@@ -115,69 +185,210 @@
             }
         }
 
-        .content {
-            max-width: 1200px;
+        /* Home Page */
+        .home-page {
+            text-align: center;
+        }
+
+        .home-hero {
+            margin-bottom: 80px;
+        }
+
+        .home-logo {
+            width: 140px;
+            height: 140px;
+            margin: 0 auto 40px;
+            background: linear-gradient(135deg, var(--red), var(--blue));
+            border-radius: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 70px;
+            box-shadow: 0 30px 80px rgba(191, 10, 48, 0.4);
+            animation: logo-pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes logo-pulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 30px 80px rgba(191, 10, 48, 0.4); }
+            50% { transform: scale(1.05); box-shadow: 0 40px 100px rgba(191, 10, 48, 0.6); }
+        }
+
+        .home-title {
+            font-size: 5em;
+            font-weight: 900;
+            margin-bottom: 25px;
+            letter-spacing: -3px;
+            background: linear-gradient(135deg, #fff 0%, rgba(255, 255, 255, 0.6) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .home-subtitle {
+            font-size: 1.6em;
+            opacity: 0.7;
+            font-weight: 600;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .home-description {
+            font-size: 1.15em;
+            opacity: 0.5;
+            max-width: 600px;
             margin: 0 auto;
-            padding: 80px 40px;
+            line-height: 1.8;
+        }
+
+        /* Category Cards */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 35px;
+        }
+
+        .category-card {
+            background: var(--card-bg);
+            border: 2px solid var(--card-border);
+            border-radius: 30px;
+            padding: 50px;
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(191, 10, 48, 0.15) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+
+        .category-card:hover::before {
+            opacity: 1;
+        }
+
+        .category-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            border-color: var(--red);
+            box-shadow: 0 30px 80px rgba(191, 10, 48, 0.4);
+        }
+
+        .category-icon {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, var(--red), var(--blue));
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 45px;
+            margin: 0 auto 30px;
+            position: relative;
+            z-index: 1;
+            transition: all 0.4s;
+        }
+
+        .category-card:hover .category-icon {
+            transform: scale(1.1) rotate(-5deg);
+        }
+
+        .category-title {
+            font-size: 2em;
+            font-weight: 800;
+            margin-bottom: 15px;
             position: relative;
             z-index: 1;
         }
 
-        .section-title {
-            font-size: 2em;
-            color: white;
-            margin-bottom: 50px;
-            font-weight: 800;
-            text-align: center;
-            text-transform: uppercase;
-            letter-spacing: 4px;
+        .category-description {
+            font-size: 1.05em;
+            opacity: 0.6;
+            line-height: 1.7;
             position: relative;
-            padding-bottom: 20px;
+            z-index: 1;
         }
 
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: linear-gradient(90deg, #BF0A30, #002868);
-            border-radius: 2px;
+        .category-arrow {
+            margin-top: 25px;
+            font-size: 1.5em;
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: all 0.4s;
+            position: relative;
+            z-index: 1;
         }
 
-        .links-grid {
+        .category-card:hover .category-arrow {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Content Pages */
+        .content-page {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .page-title {
+            font-size: 3.5em;
+            font-weight: 900;
+            margin-bottom: 20px;
+            letter-spacing: -2px;
+        }
+
+        .page-title .highlight {
+            background: linear-gradient(135deg, var(--red), var(--blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-subtitle {
+            font-size: 1.2em;
+            opacity: 0.6;
+            font-weight: 500;
+        }
+
+        /* Link Cards */
+        .link-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 30px;
-            margin-bottom: 30px;
         }
 
         .link-card {
-            background: linear-gradient(145deg, #1a1f3a 0%, #0d1123 100%);
-            border: 2px solid rgba(191, 10, 48, 0.3);
-            border-radius: 20px;
-            padding: 35px;
-            text-decoration: none;
-            color: white;
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: var(--card-bg);
+            border: 2px solid var(--card-border);
+            border-radius: 24px;
+            padding: 40px;
             display: flex;
             align-items: center;
-            gap: 25px;
+            gap: 30px;
+            transition: all 0.4s;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
 
         .link-card::before {
             content: '';
             position: absolute;
-            top: 0;
             left: -100%;
+            top: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(191, 10, 48, 0.2), transparent);
+            background: linear-gradient(90deg, transparent, rgba(191, 10, 48, 0.1), transparent);
             transition: left 0.6s;
         }
 
@@ -185,275 +396,426 @@
             left: 100%;
         }
 
-        .link-card::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: 20px;
-            padding: 2px;
-            background: linear-gradient(135deg, #BF0A30, #002868, #BF0A30);
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            opacity: 0;
-            transition: opacity 0.5s;
-        }
-
-        .link-card:hover::after {
-            opacity: 1;
-        }
-
         .link-card:hover {
-            transform: translateY(-12px) scale(1.03);
-            box-shadow: 0 20px 60px rgba(191, 10, 48, 0.4);
-            border-color: #BF0A30;
+            transform: translateX(10px);
+            border-color: var(--red);
+            box-shadow: 0 20px 60px rgba(191, 10, 48, 0.3);
         }
 
         .link-icon {
             width: 80px;
             height: 80px;
-            background: linear-gradient(135deg, #BF0A30 0%, #002868 100%);
-            border-radius: 18px;
+            background: linear-gradient(135deg, var(--red), var(--blue));
+            border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
             font-size: 38px;
             flex-shrink: 0;
-            box-shadow: 0 8px 20px rgba(191, 10, 48, 0.5);
-            transition: all 0.4s;
             position: relative;
-        }
-
-        .link-icon::before {
-            content: '';
-            position: absolute;
-            inset: -3px;
-            border-radius: 20px;
-            background: linear-gradient(135deg, #BF0A30, #002868);
-            z-index: -1;
-            opacity: 0;
-            transition: opacity 0.4s;
+            z-index: 1;
+            transition: all 0.4s;
         }
 
         .link-card:hover .link-icon {
-            transform: rotate(10deg) scale(1.15);
+            transform: scale(1.1) rotate(5deg);
         }
 
-        .link-card:hover .link-icon::before {
-            opacity: 1;
-            animation: pulse 1.5s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 0.5; }
-            50% { transform: scale(1.1); opacity: 0.8; }
-        }
-
-        .link-info {
+        .link-content {
             flex: 1;
+            position: relative;
+            z-index: 1;
         }
 
         .link-title {
-            font-size: 1.5em;
-            font-weight: 800;
-            margin-bottom: 10px;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            font-size: 1.8em;
+            font-weight: 700;
+            margin-bottom: 12px;
         }
 
         .link-description {
             font-size: 1.05em;
-            color: rgba(255, 255, 255, 0.7);
-            line-height: 1.6;
+            opacity: 0.6;
+            line-height: 1.7;
+            margin-bottom: 20px;
         }
 
-        .badge {
-            display: inline-block;
-            background: rgba(191, 10, 48, 0.3);
-            color: #ff6b6b;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 0.75em;
-            font-weight: 700;
-            margin-top: 8px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .archive-toggle {
-            text-align: center;
-            margin-top: 60px;
-        }
-
-        .archive-btn {
-            background: linear-gradient(135deg, rgba(191, 10, 48, 0.2) 0%, rgba(0, 40, 104, 0.2) 100%);
-            border: 2px solid rgba(191, 10, 48, 0.5);
+        .link-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 28px;
+            background: rgba(191, 10, 48, 0.2);
+            border: 2px solid rgba(191, 10, 48, 0.4);
+            border-radius: 14px;
             color: white;
-            padding: 15px 40px;
-            font-size: 1.1em;
-            font-weight: 700;
-            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1em;
+            transition: all 0.3s;
+        }
+
+        .link-btn:hover {
+            background: rgba(191, 10, 48, 0.4);
+            border-color: var(--red);
+            transform: translateX(5px);
+        }
+
+        .link-btn::after {
+            content: '→';
+            font-size: 1.2em;
+            transition: transform 0.3s;
+        }
+
+        .link-btn:hover::after {
+            transform: translateX(5px);
+        }
+
+        /* Back Button */
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 28px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 14px;
+            color: white;
+            font-weight: 600;
+            font-size: 1em;
             cursor: pointer;
-            transition: all 0.4s;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s;
+            margin-bottom: 50px;
         }
 
-        .archive-btn:hover {
-            background: linear-gradient(135deg, rgba(191, 10, 48, 0.4) 0%, rgba(0, 40, 104, 0.4) 100%);
-            border-color: #BF0A30;
+        .back-btn:hover {
+            background: rgba(191, 10, 48, 0.2);
+            border-color: var(--red);
+            transform: translateX(-5px);
+        }
+
+        .back-btn::before {
+            content: '←';
+            font-size: 1.2em;
+            transition: transform 0.3s;
+        }
+
+        .back-btn:hover::before {
+            transform: translateX(-5px);
+        }
+
+        /* Archive Toggle */
+        .archive-toggle {
+            margin-top: 80px;
+            text-align: center;
+        }
+
+        .archive-toggle-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 32px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 14px;
+            color: white;
+            font-weight: 600;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .archive-toggle-btn:hover {
+            background: rgba(191, 10, 48, 0.2);
+            border-color: var(--red);
             transform: scale(1.05);
-            box-shadow: 0 8px 30px rgba(191, 10, 48, 0.4);
         }
 
-        .archive-section {
+        .archive-toggle-btn .arrow {
+            transition: transform 0.3s;
+            font-size: 1.2em;
+        }
+
+        .archive-toggle-btn.active .arrow {
+            transform: rotate(180deg);
+        }
+
+        .archive-content {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.6s ease-out, opacity 0.6s ease-out, margin-top 0.6s ease-out;
+            transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
             opacity: 0;
-            padding: 0 20px;
         }
 
-        .archive-section.active {
-            max-height: 500px;
+        .archive-content.active {
+            max-height: 600px;
             opacity: 1;
             margin-top: 40px;
         }
 
-        .archive-title {
-            font-size: 1.5em;
-            color: rgba(255, 255, 255, 0.6);
-            margin-bottom: 30px;
-            font-weight: 700;
-            text-align: center;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-        }
-
-        .footer {
-            background: linear-gradient(135deg, #0d1123 0%, #1a1f3a 100%);
-            padding: 40px 30px;
-            text-align: center;
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 1em;
-            font-weight: 500;
-            letter-spacing: 2px;
-            border-top: 2px solid rgba(191, 10, 48, 0.3);
-        }
-
+        /* Responsive */
         @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2.5em;
-            }
-            
-            .header .subtitle {
-                font-size: 1.1em;
+            .nav {
+                padding: 20px 25px;
+                flex-direction: column;
+                gap: 20px;
             }
 
-            .links-grid {
+            .nav-links {
+                width: 100%;
+                flex-direction: column;
+            }
+
+            .nav-btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .home-title {
+                font-size: 3em;
+            }
+
+            .home-subtitle {
+                font-size: 1.2em;
+            }
+
+            .category-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .link-card {
-                padding: 25px;
-            }
-            
-            .link-icon {
-                width: 65px;
-                height: 65px;
-                font-size: 30px;
+                flex-direction: column;
+                text-align: center;
             }
 
-            .content {
-                padding: 50px 25px;
+            .page-title {
+                font-size: 2.5em;
             }
         }
     </style>
 </head>
 <body>
-    <div class="stars" id="stars"></div>
-    
-    <div class="header">
-        <div class="header-content">
-            <h1>TPUSA SAN MATEO</h1>
-            <p class="subtitle">Leadership Command Center</p>
-        </div>
+    <div class="bg-animation">
+        <div class="bg-gradient"></div>
+        <div class="bg-gradient"></div>
+        <div class="bg-gradient"></div>
     </div>
 
-    <div class="content">
-        <h2 class="section-title">Response Dashboard</h2>
-        <div class="links-grid">
-            <a href="https://docs.google.com/spreadsheets/d/1AYu-Ukg665uLP4Vks4vNF_T8JHOO2-2zhvVWzVc5_uc/edit?usp=sharing" class="link-card" target="_blank">
-                <div class="link-icon">✍️</div>
-                <div class="link-info">
-                    <div class="link-title">Sign-In Responses</div>
-                    <div class="link-description">Current member check-ins and attendance tracking</div>
-                </div>
-            </a>
+    <div class="page-container">
+        <nav class="nav">
+            <div class="nav-logo" onclick="showPage('home')">
+                <div class="nav-logo-icon">🇺🇸</div>
+                <span>TPUSA San Mateo</span>
+            </div>
+            <div class="nav-links">
+                <button class="nav-btn active" onclick="showPage('home')">Home</button>
+                <button class="nav-btn" onclick="showPage('forms')">Forms</button>
+                <button class="nav-btn" onclick="showPage('responses')">Responses</button>
+                <button class="nav-btn" onclick="showPage('resources')">Resources</button>
+            </div>
+        </nav>
 
-            <a href="https://docs.google.com/spreadsheets/d/1w7FNjWs3qBsTv2a9-8CBbXhndav6s-raRZ2XKWQzn8Q/edit?usp=sharing" class="link-card" target="_blank">
-                <div class="link-icon">📋</div>
-                <div class="link-info">
-                    <div class="link-title">RSVP Responses</div>
-                    <div class="link-description">Event registrations and attendance confirmations</div>
-                </div>
-            </a>
-
-            <a href="https://drive.google.com/drive/folders/1OeHNHwO8AKW8ixFwqpQbRAF56y-_LDTP?usp=sharing" class="link-card" target="_blank">
-                <div class="link-icon">📁</div>
-                <div class="link-info">
-                    <div class="link-title">Resource Drive</div>
-                    <div class="link-description">Shared documents, materials, and chapter resources</div>
-                </div>
-            </a>
-        </div>
-
-        <div class="archive-toggle">
-            <button class="archive-btn" onclick="toggleArchive()">📦 View Archived Forms</button>
-        </div>
-
-        <div class="archive-section" id="archiveSection">
-            <h3 class="archive-title">Archived Data</h3>
-            <div class="links-grid">
-                <a href="https://docs.google.com/spreadsheets/d/1LBMqMBxcu-U73vnDiZRA6Ap0kqqMq8qhLazut2DvXFE/edit?gid=1176258072#gid=1176258072" class="link-card" target="_blank">
-                    <div class="link-icon">📊</div>
-                    <div class="link-info">
-                        <div class="link-title">Old Sign-In Form</div>
-                        <div class="link-description">Legacy attendance data and historical records</div>
-                        <span class="badge">Archived</span>
+        <div class="main-content">
+            <!-- Home Page -->
+            <div class="page-view active" id="home">
+                <div class="home-page">
+                    <div class="home-hero">
+                        <div class="home-logo">🇺🇸</div>
+                        <h1 class="home-title">TPUSA San Mateo</h1>
+                        <p class="home-subtitle">Quick Links</p>
+                        <p class="home-description">Access all chapter resources, forms, and data in one centralized hub</p>
                     </div>
-                </a>
+
+                    <div class="category-grid">
+                        <div class="category-card" onclick="showPage('forms')">
+                            <div class="category-icon">📝</div>
+                            <h3 class="category-title">Forms</h3>
+                            <p class="category-description">Sign in to meetings and RSVP for upcoming chapter events</p>
+                            <div class="category-arrow">→</div>
+                        </div>
+
+                        <div class="category-card" onclick="showPage('responses')">
+                            <div class="category-icon">📊</div>
+                            <h3 class="category-title">Responses</h3>
+                            <p class="category-description">View attendance data and event registration analytics</p>
+                            <div class="category-arrow">→</div>
+                        </div>
+
+                        <div class="category-card" onclick="showPage('resources')">
+                            <div class="category-icon">🗂️</div>
+                            <h3 class="category-title">Resources</h3>
+                            <p class="category-description">Access shared documents, materials, and chapter files</p>
+                            <div class="category-arrow">→</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Forms Page -->
+            <div class="page-view" id="forms">
+                <div class="content-page">
+                    <button class="back-btn" onclick="showPage('home')">Back to Home</button>
+                    
+                    <div class="page-header">
+                        <h2 class="page-title"><span class="highlight">Member Forms</span></h2>
+                        <p class="page-subtitle">Submit your attendance and event registrations</p>
+                    </div>
+
+                    <div class="link-grid">
+                        <div class="link-card">
+                            <div class="link-icon">✍️</div>
+                            <div class="link-content">
+                                <h3 class="link-title">Sign-In Form</h3>
+                                <p class="link-description">Check in when you arrive at chapter meetings and events. Quick and easy attendance tracking for all members.</p>
+                                <a href="https://docs.google.com/forms/d/1TMdyR8BR4c57MWkWHCr4T_WltlAnwobgpLWdVHuXul0/viewform?edit_requested=true" class="link-btn" target="_blank">
+                                    Open Form
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="link-card">
+                            <div class="link-icon">🎫</div>
+                            <div class="link-content">
+                                <h3 class="link-title">RSVP Form</h3>
+                                <p class="link-description">Register for upcoming chapter events, activities, and special meetings. Let us know you're planning to attend!</p>
+                                <a href="https://docs.google.com/forms/d/1RV4eccrfUGxcGcYLXnTZCAC-HeJ-bpOpA-am2suIm-s/viewform?edit_requested=true" class="link-btn" target="_blank">
+                                    Open Form
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Responses Page -->
+            <div class="page-view" id="responses">
+                <div class="content-page">
+                    <button class="back-btn" onclick="showPage('home')">Back to Home</button>
+                    
+                    <div class="page-header">
+                        <h2 class="page-title"><span class="highlight">Response Data</span></h2>
+                        <p class="page-subtitle">Analyze form submissions and track attendance</p>
+                    </div>
+
+                    <div class="link-grid">
+                        <div class="link-card">
+                            <div class="link-icon">📈</div>
+                            <div class="link-content">
+                                <h3 class="link-title">Sign-In Responses</h3>
+                                <p class="link-description">Real-time attendance data and member check-in history. View comprehensive analytics on who's been to which events.</p>
+                                <a href="https://docs.google.com/spreadsheets/d/1AYu-Ukg665uLP4Vks4vNF_T8JHOO2-2zhvVWzVc5_uc/edit?usp=sharing" class="link-btn" target="_blank">
+                                    View Data
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="link-card">
+                            <div class="link-icon">📋</div>
+                            <div class="link-content">
+                                <h3 class="link-title">RSVP Responses</h3>
+                                <p class="link-description">Event registration confirmations and RSVP tracking. See who's planning to attend upcoming chapter activities.</p>
+                                <a href="https://docs.google.com/spreadsheets/d/1w7FNjWs3qBsTv2a9-8CBbXhndav6s-raRZ2XKWQzn8Q/edit?usp=sharing" class="link-btn" target="_blank">
+                                    View Data
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="archive-toggle">
+                        <button class="archive-toggle-btn" onclick="toggleArchive()">
+                            <span>📚</span>
+                            <span>View Archived Data</span>
+                            <span class="arrow">▼</span>
+                        </button>
+                    </div>
+
+                    <div class="archive-content" id="archiveContent">
+                        <div class="page-header" style="margin-top: 0;">
+                            <h2 class="page-title"><span class="highlight">Archived Data</span></h2>
+                            <p class="page-subtitle">Historical records and legacy data</p>
+                        </div>
+
+                        <div class="link-grid">
+                            <div class="link-card">
+                                <div class="link-icon">📚</div>
+                                <div class="link-content">
+                                    <h3 class="link-title">Archived Sign-In Data</h3>
+                                    <p class="link-description">Historical attendance records from previous semesters and legacy tracking system data for reference.</p>
+                                    <a href="https://docs.google.com/spreadsheets/d/1LBMqMBxcu-U73vnDiZRA6Ap0kqqMq8qhLazut2DvXFE/edit?gid=1176258072#gid=1176258072" class="link-btn" target="_blank">
+                                        View Archive
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resources Page -->
+            <div class="page-view" id="resources">
+                <div class="content-page">
+                    <button class="back-btn" onclick="showPage('home')">Back to Home</button>
+                    
+                    <div class="page-header">
+                        <h2 class="page-title"><span class="highlight">Resources</span></h2>
+                        <p class="page-subtitle">Access shared materials and documents</p>
+                    </div>
+
+                    <div class="link-grid">
+                        <div class="link-card">
+                            <div class="link-icon">📁</div>
+                            <div class="link-content">
+                                <h3 class="link-title">Google Drive</h3>
+                                <p class="link-description">Centralized hub for all chapter documents, presentations, flyers, photos, videos, event materials, and shared files. Everything you need in one place.</p>
+                                <a href="https://drive.google.com/drive/folders/1OeHNHwO8AKW8ixFwqpQbRAF56y-_LDTP?usp=sharing" class="link-btn" target="_blank">
+                                    Browse Files
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="footer">
-        <p>TPUSA San Mateo Chapter · Turning Point USA · 2025</p>
-    </div>
-
     <script>
-        // Create animated stars
-        const starsContainer = document.getElementById('stars');
-        for (let i = 0; i < 100; i++) {
-            const star = document.createElement('div');
-            star.className = 'star';
-            star.style.left = Math.random() * 100 + '%';
-            star.style.top = Math.random() * 100 + '%';
-            star.style.animationDelay = Math.random() * 3 + 's';
-            starsContainer.appendChild(star);
+        function showPage(pageName) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page-view');
+            pages.forEach(page => page.classList.remove('active'));
+
+            // Show selected page
+            document.getElementById(pageName).classList.add('active');
+
+            // Update nav buttons
+            const navBtns = document.querySelectorAll('.nav-btn');
+            navBtns.forEach(btn => btn.classList.remove('active'));
+            
+            if (pageName === 'home') {
+                navBtns[0].classList.add('active');
+            } else if (pageName === 'forms') {
+                navBtns[1].classList.add('active');
+            } else if (pageName === 'responses') {
+                navBtns[2].classList.add('active');
+            } else if (pageName === 'resources') {
+                navBtns[3].classList.add('active');
+            }
+
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Toggle archive section
         function toggleArchive() {
-            const archiveSection = document.getElementById('archiveSection');
-            archiveSection.classList.toggle('active');
-            const btn = document.querySelector('.archive-btn');
-            if (archiveSection.classList.contains('active')) {
-                btn.textContent = '📦 Hide Archived Forms';
+            const archiveContent = document.getElementById('archiveContent');
+            const toggleBtn = document.querySelector('.archive-toggle-btn');
+            
+            archiveContent.classList.toggle('active');
+            toggleBtn.classList.toggle('active');
+            
+            if (archiveContent.classList.contains('active')) {
+                toggleBtn.querySelector('span:nth-child(2)').textContent = 'Hide Archived Data';
             } else {
-                btn.textContent = '📦 View Archived Forms';
+                toggleBtn.querySelector('span:nth-child(2)').textContent = 'View Archived Data';
             }
         }
     </script>
