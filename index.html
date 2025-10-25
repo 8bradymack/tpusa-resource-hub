@@ -101,6 +101,13 @@
             position: relative;
             overflow: hidden;
             background: linear-gradient(135deg, #0A1F44 0%, #003B6F 50%, #DC143C 100%);
+            animation: gradient-shift 15s ease infinite;
+            background-size: 200% 200%;
+        }
+
+        @keyframes gradient-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
 
         .stars-bg {
@@ -127,7 +134,6 @@
             0% { background-position: 0% 0%; }
             100% { background-position: 100% 100%; }
         }
-
 
         .hero-content {
             position: relative;
@@ -252,6 +258,7 @@
             overflow: hidden;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
+            border: 1px solid rgba(0, 0, 0, 0.05);
         }
 
         .card::before {
@@ -266,6 +273,22 @@
             transition: transform 0.4s;
         }
 
+        .card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(220, 20, 60, 0.1), rgba(0, 59, 111, 0.1));
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .card:hover::after {
+            opacity: 1;
+        }
+
         .card:hover::before {
             transform: scaleX(1);
         }
@@ -278,6 +301,15 @@
         .card-icon {
             font-size: 56px;
             margin-bottom: 24px;
+            display: inline-block;
+            animation: float 3s ease-in-out infinite;
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
         }
 
         .card-title {
@@ -285,6 +317,8 @@
             font-weight: 700;
             color: var(--dark);
             margin-bottom: 12px;
+            position: relative;
+            z-index: 1;
         }
 
         .card-description {
@@ -292,6 +326,8 @@
             color: var(--light-gray);
             line-height: 1.6;
             margin-bottom: 24px;
+            position: relative;
+            z-index: 1;
         }
 
         .card-link {
@@ -392,6 +428,26 @@
             border-radius: 980px;
             text-decoration: none;
             transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .feature-btn:hover::before {
+            width: 300px;
+            height: 300px;
         }
 
         .feature-btn:hover {
@@ -443,7 +499,7 @@
         }
 
         .archive-content.active {
-            max-height: 1000px;
+            max-height: 2000px;
         }
 
         /* Footer */
@@ -557,8 +613,8 @@
                 🇺🇸 TPUSA San Mateo
             </div>
             <div class="nav-links">
-                <a class="nav-link" onclick="scrollToSection('forms')">Forms</a>
                 <a class="nav-link" onclick="scrollToSection('responses')">Responses</a>
+                <a class="nav-link" onclick="scrollToSection('forms')">Forms</a>
                 <a class="nav-link" onclick="scrollToSection('resources')">Resources</a>
             </div>
         </div>
@@ -571,7 +627,7 @@
             <div class="hero-flag">🇺🇸</div>
             <h1 class="hero-title">TPUSA San Mateo</h1>
             <p class="hero-subtitle">Freedom. Leadership. Action.</p>
-            <a href="#forms" class="hero-cta" onclick="scrollToSection('forms'); return false;">
+            <a href="#responses" class="hero-cta" onclick="scrollToSection('responses'); return false;">
                 Get Started →
             </a>
         </div>
@@ -579,35 +635,6 @@
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
                 <path d="M12 5v14M19 12l-7 7-7-7"/>
             </svg>
-        </div>
-    </section>
-
-    <!-- Forms Section -->
-    <section class="section" id="forms">
-        <div class="section-header">
-            <div class="section-eyebrow">Member Portal</div>
-            <h2 class="section-title">Quick Access Forms</h2>
-            <p class="section-description">Submit attendance and register for upcoming events with ease</p>
-        </div>
-
-        <div class="cards-grid">
-            <div class="card" onclick="window.open('https://docs.google.com/forms/d/1TMdyR8BR4c57MWkWHCr4T_WltlAnwobgpLWdVHuXul0/viewform?edit_requested=true', '_blank')">
-                <div class="card-icon">✍️</div>
-                <h3 class="card-title">Sign-In Form</h3>
-                <p class="card-description">Check in when you arrive at chapter meetings. Quick and seamless attendance tracking for all members.</p>
-                <a href="https://docs.google.com/forms/d/1TMdyR8BR4c57MWkWHCr4T_WltlAnwobgpLWdVHuXul0/viewform?edit_requested=true" class="card-link" target="_blank" onclick="event.stopPropagation()">
-                    Open form
-                </a>
-            </div>
-
-            <div class="card" onclick="window.open('https://docs.google.com/forms/d/1RV4eccrfUGxcGcYLXnTZCAC-HeJ-bpOpA-am2suIm-s/viewform?edit_requested=true', '_blank')">
-                <div class="card-icon">🎫</div>
-                <h3 class="card-title">RSVP Form</h3>
-                <p class="card-description">Register for upcoming chapter events and activities. Let us know you're planning to attend!</p>
-                <a href="https://docs.google.com/forms/d/1RV4eccrfUGxcGcYLXnTZCAC-HeJ-bpOpA-am2suIm-s/viewform?edit_requested=true" class="card-link" target="_blank" onclick="event.stopPropagation()">
-                    Open form
-                </a>
-            </div>
         </div>
     </section>
 
@@ -644,24 +671,33 @@
                 </a>
             </div>
         </div>
+    </section>
 
-        <!-- Archive Section -->
-        <div class="archive-section">
-            <div class="archive-header">
-                <h3 class="archive-title">📚 Archived Data</h3>
-                <button class="archive-toggle" onclick="toggleArchive()">Show Archive</button>
+    <!-- Forms Section -->
+    <section class="section" id="forms">
+        <div class="section-header">
+            <div class="section-eyebrow">Member Portal</div>
+            <h2 class="section-title">Quick Access Forms</h2>
+            <p class="section-description">Submit attendance and register for upcoming events with ease</p>
+        </div>
+
+        <div class="cards-grid">
+            <div class="card" onclick="window.open('https://docs.google.com/forms/d/1TMdyR8BR4c57MWkWHCr4T_WltlAnwobgpLWdVHuXul0/viewform?edit_requested=true', '_blank')">
+                <div class="card-icon">✍️</div>
+                <h3 class="card-title">Sign-In Form</h3>
+                <p class="card-description">Check in when you arrive at chapter meetings. Quick and seamless attendance tracking for all members.</p>
+                <a href="https://docs.google.com/forms/d/1TMdyR8BR4c57MWkWHCr4T_WltlAnwobgpLWdVHuXul0/viewform?edit_requested=true" class="card-link" target="_blank" onclick="event.stopPropagation()">
+                    Open form
+                </a>
             </div>
-            <div class="archive-content" id="archiveContent">
-                <div class="cards-grid">
-                    <div class="card" onclick="window.open('https://docs.google.com/spreadsheets/d/1LBMqMBxcu-U73vnDiZRA6Ap0kqqMq8qhLazut2DvXFE/edit?gid=1176258072#gid=1176258072', '_blank')">
-                        <div class="card-icon">📚</div>
-                        <h3 class="card-title">Archived Sign-In Data</h3>
-                        <p class="card-description">Historical attendance records from previous semesters and legacy tracking system data.</p>
-                        <a href="https://docs.google.com/spreadsheets/d/1LBMqMBxcu-U73vnDiZRA6Ap0kqqMq8qhLazut2DvXFE/edit?gid=1176258072#gid=1176258072" class="card-link" target="_blank" onclick="event.stopPropagation()">
-                            View archive
-                        </a>
-                    </div>
-                </div>
+
+            <div class="card" onclick="window.open('https://docs.google.com/forms/d/1RV4eccrfUGxcGcYLXnTZCAC-HeJ-bpOpA-am2suIm-s/viewform?edit_requested=true', '_blank')">
+                <div class="card-icon">🎫</div>
+                <h3 class="card-title">RSVP Form</h3>
+                <p class="card-description">Register for upcoming chapter events and activities. Let us know you're planning to attend!</p>
+                <a href="https://docs.google.com/forms/d/1RV4eccrfUGxcGcYLXnTZCAC-HeJ-bpOpA-am2suIm-s/viewform?edit_requested=true" class="card-link" target="_blank" onclick="event.stopPropagation()">
+                    Open form
+                </a>
             </div>
         </div>
     </section>
@@ -688,18 +724,44 @@
         </div>
     </section>
 
+    <!-- Archive Section -->
+    <section class="section" id="archive">
+        <div class="section-header">
+            <div class="section-eyebrow">Historical Records</div>
+            <h2 class="section-title">Archived Data</h2>
+            <p class="section-description">Access previous semesters and legacy tracking system records</p>
+        </div>
+
+        <div class="archive-header">
+            <h3 class="archive-title">📚 Previous Records</h3>
+            <button class="archive-toggle" onclick="toggleArchive()">Show Archive</button>
+        </div>
+        <div class="archive-content" id="archiveContent">
+            <div class="cards-grid">
+                <div class="card" onclick="window.open('https://docs.google.com/spreadsheets/d/1LBMqMBxcu-U73vnDiZRA6Ap0kqqMq8qhLazut2DvXFE/edit?gid=1176258072#gid=1176258072', '_blank')">
+                    <div class="card-icon">📚</div>
+                    <h3 class="card-title">Archived Sign-In Data</h3>
+                    <p class="card-description">Historical attendance records from previous semesters and legacy tracking system data.</p>
+                    <a href="https://docs.google.com/spreadsheets/d/1LBMqMBxcu-U73vnDiZRA6Ap0kqqMq8qhLazut2DvXFE/edit?gid=1176258072#gid=1176258072" class="card-link" target="_blank" onclick="event.stopPropagation()">
+                        View archive
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-flag">🇺🇸</div>
         <h3 class="footer-title">TPUSA San Mateo</h3>
         <p class="footer-description">Empowering the next generation of conservative leaders through education, activism, and community engagement.</p>
         <div class="footer-links">
-            <a href="#forms" class="footer-link" onclick="scrollToSection('forms'); return false;">Forms</a>
             <a href="#responses" class="footer-link" onclick="scrollToSection('responses'); return false;">Responses</a>
+            <a href="#forms" class="footer-link" onclick="scrollToSection('forms'); return false;">Forms</a>
             <a href="#resources" class="footer-link" onclick="scrollToSection('resources'); return false;">Resources</a>
         </div>
         <div class="footer-copyright">
-            © 2024 TPUSA San Mateo. All rights reserved.
+            © 2025 TPUSA San Mateo. All rights reserved.
         </div>
     </footer>
 
